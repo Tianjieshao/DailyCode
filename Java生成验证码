@@ -275,3 +275,18 @@ public class CpachaUtil {
 	}
 	
 }
+
+
+-----------------------------------------------------demo-----------------------------------------------------
+  CpachaUtil cpachaUtil = new CpachaUtil(vl,w,h);  
+  //生成验证码的具体内容
+   String generatorVCode =  cpachaUtil.generatorVCode();
+   request.getSession().setAttribute("loginCpacha", generatorVCode);
+   BufferedImage generatorRotateVCodeImage =  cpachaUtil.generatorRotateVCodeImage(generatorVCode, true);
+   try {
+     ImageIO.write(generatorRotateVCodeImage, "gif", response.getOutputStream());
+   } catch (IOException e) {
+     e.printStackTrace();
+   }
+
+
